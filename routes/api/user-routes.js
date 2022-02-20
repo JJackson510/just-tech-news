@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { get } = require('express/lib/response');
-const {User} = require('../../models');
+const {User, Post, Vote} = require('../../models');
 
 //Get api /users
 router.get('/', (req, res) => {
