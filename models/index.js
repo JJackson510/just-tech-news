@@ -1,6 +1,7 @@
 const User = require('./User');
 const Post = ('./post.js');
 const Vote =('./vote.js');
+const Comment = ('./comment.js');
 
 //crate associations 
 User.hasMany(Post, {
@@ -39,5 +40,21 @@ Post.belongsToMany(Vote, {
     foreignKey: 'user_id'
 });
 
+Comment.belongsTo(User, {
+    foreignKey: 'user_id'
+});
 
-module.exports = {User, Post, Vote};
+Comment.belongsTo(Post, {
+    foreignKey: 'post_id'
+});
+
+User.hasMany(Comment, {
+    foreignKey: 'user_id'
+});
+
+Post.hasMany(Comment, {
+    foreignKey: 'post_id'
+});
+
+
+module.exports = {User, Post, Vote, Comment};
